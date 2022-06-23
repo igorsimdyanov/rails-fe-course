@@ -31,6 +31,8 @@ gem 'devise', '~> 4.2'
 gem 'bootsnap', '>= 1.9.3', require: false
 
 gem 'bootstrap', '~> 5.1.0'
+gem 'slim-rails'
+gem 'image_processing'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
