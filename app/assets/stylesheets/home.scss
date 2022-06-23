@@ -1,3 +1,39 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$variable: value_1;
+
+.rule {
+  value: $variable;
+}
+
+p {
+  @if 1 + 1 == 2 { border: 1px solid; }
+  @if 5 < 3 { border: 2px dotted; }
+}
+
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i; }
+}
+
+@mixin square($size: 16px) {
+  height: $size;
+  width: $size;
+  border: $size/16 #333 solid;
+  border-radius: $size/16;
+}
+
+.small-rounded-square {
+  @include square;
+}
+
+.medium-rounded-square {
+  @include square(32px);
+}
+
+#wrapper h1 {
+  width: 20px;
+  &:hover {
+    width: 25px;
+  }
+}
