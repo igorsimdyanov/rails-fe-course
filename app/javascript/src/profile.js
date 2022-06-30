@@ -1,19 +1,32 @@
-const getButtonColorClass = () => {
+const getButtonColor = () => {
   const colors = ["green", "blue", "red"];        
   const index = Math.floor(Math.random() * colors.length);  
  
-  return `button--${colors[index]}`;
+  return colors[index];
 }
 
-const changeButtonClass = (buttonElement) => {
-  const colorClass = getButtonColorClass();
-  const className = `button ${colorClass}`;
+const changeButtonClass = (buttonElement, color) => {
+  const className = `button button--${color}`;
   buttonElement.className = className;
 }
 
-const handleClick = (event) => {
+const handleClick = async (event) => {
+  const color = getButtonColor();
+
   const buttonElement = event.target;
-  changeButtonClass(buttonElement);
+  changeButtonClass(buttonElement, color);
+
+  try {
+    const requestBody = new FormData();
+    requestBody.set("color", color);
+
+    const responce = await fetch('/colors', {
+      method: 'POST',
+      body: requestBody
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 window.addEventListener('turbolinks:load', function () {
