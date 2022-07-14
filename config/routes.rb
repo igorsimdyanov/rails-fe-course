@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'home/index'
   root 'home#index'
   resources :posts do
     member do
       post :like
       get :likes
+    end
+    collection do
+      get :search
+      get :autocomplete
     end
   end
 

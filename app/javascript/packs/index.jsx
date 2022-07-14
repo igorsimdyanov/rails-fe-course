@@ -10,11 +10,12 @@ import "trix"
 import "@rails/actiontext"
 import "src/profile.js"
 import "src/post.js"
+import "controllers"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener("DOMContentLoaded", () => {
-	render(<App/>, document.body.appendChild(document.createElement("div")));
-});
+// document.addEventListener("DOMContentLoaded", () => {
+// 	render(<App/>, document.body.appendChild(document.createElement("div")));
+// });

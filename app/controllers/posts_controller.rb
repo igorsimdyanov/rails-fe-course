@@ -6,6 +6,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def search
+    @found_posts = Post.search_posts(params[:q])
+    render layout: false
+  end
+
+  def autocomplete
+    @autocomplete_results = Post.search_posts(params[:q])
+    render layout: false
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
   end
