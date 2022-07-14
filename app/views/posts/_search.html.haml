@@ -1,0 +1,11 @@
+.mb-6{ 'data-controller' => 'search' }
+  = form_with(url: search_posts_path, method: :get, data: { action: "submit->search#submit"}) do |f|
+    = label_tag(:q, 'Search for')
+
+    %div{'data-autocomplete-url-value' => autocomplete_posts_path, 'data-controller' => 'autocomplete'}
+      = text_field_tag :q, params[:q], class: 'form-control', data: { 'search-target' => 'q', 'autocomplete-target' => 'input'}
+      %ul{'data-autocomplete-target' => 'results'}
+    %br
+    = submit_tag 'Search', class: 'btn btn-primary', data: { 'search-target' => 'submitBtn'}
+
+    %div{'data-search-target' => 'results'}
